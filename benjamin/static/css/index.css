@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(160, 153, 153);
+}
+
+button {
+    margin-top: 25%;
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+button:hover {
+    background-color: blue;
+    color: white;
+}

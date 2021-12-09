@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/list.js') }}"></script>
+</head>
+
+<body onload="myFunction()">
+    <center>
+        <p id="info"></p>
+        <!-- <button onclick="myFunction()">Try it</button> -->
+
+        <table id="myTable">
+            <tr>
+                <th>Task title</th>
+                <th>Task description</th>
+                <th>Importance</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for list in lists %}
+            <tr>
+                <td>{{list.task_name}}</td>
+                <td>{{list.task_description}}</td>
+                <td>{{list.importance}}</td>
+                <td>{{list.time}}</td>
+                <td>{{list.date}}</td>
+                <td>
+                    <a href="{{ url_for( 'update_list', id=list.ID)}}">Update</a>
+                </td>
+                <td>
+                    <a href="{{ url_for( 'delete_lists', id=list.ID)}}">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+
+</html>
